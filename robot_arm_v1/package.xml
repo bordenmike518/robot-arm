@@ -1,0 +1,10 @@
+<package>
+  <name>robot_arm</name>
+  <version>0.0.1</version>
+
+  <description>This is a 6DOF robot arm project.</description>
+  <author email="bordenmike518@gmail.com">Michael Borden!!</author>
+
+  <maintainer email="bordenmike518@gmail.com">Michael Borden!!</maintainer>
+
+</package>

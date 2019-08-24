@@ -1,0 +1,259 @@
+<!--https://www.hamzamerzic.info/mesh_cleaner/?-->
+<!--file:///home/michael/Downloads/bullet3-master/data/kuka_iiwa/model.urdf-->
+<robot name="robot_arm">
+  <material  name="red">
+    <color rgba="1.0 0.0 0.0 1.0"/>
+  </material>
+  <material  name="green">
+    <color rgba="0.0 1.0 0.0 1.0"/>
+  </material>
+  <material  name="blue">
+    <color rgba="0.0 0.0 1.0 1.0"/>
+  </material>
+
+  <link name="root">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <!-- Volume:  7.1922752000e-05 -->
+      <mass value="0" />
+      <!--pose>  6.0072000000e-03  1.8791600000e-03  2.2527800000e-03 0 0 0 </pose-->
+      <inertia ixx="1.7270217664e-03" ixy="3.5078468633e-07" ixz="-9.6598361531e-07" iyy="3.4406858987e-03" iyz="-8.2437056914e-08" izz="1.7184554465e-03"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="-1.57 0 0" />
+      <geometry>
+        <mesh filename="data/root.dae" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="-1.57 0 0" />
+      <geometry>
+        <mesh filename="data/root.stl" />
+      </geometry>
+    </collision>
+  </link>
+  
+  <joint name="joint1" type="revolute">
+    <origin xyz="0 0 0" rpy="0 0 3.14" />
+    <axis xyz="0 0 1" />
+    <parent link="root" />
+    <child  link="link1" />
+    <calibration rising="0.0" />
+    <dynamics damping="0.0" friction="0.0" />
+    <limit effort="30" velocity="1.0" lower="-2.6" upper="2.6" />
+    <safety_controller k_velocity="10" soft_lower_limit="-2.2" soft_upper_limit="2.2" />
+  </joint>
+  
+  <link name="link1">
+    <inertial>
+      <!-- Volume:  1.1736998000e-04 -->
+      <mass value="1.0" />
+      <!--pose>  6.0584500000e-03  4.2441850000e-02 -2.5059200000e-03 0 0 0 </pose-->
+      <inertia ixx="1.5223804477e-03" ixy="1.3931484865e-05" ixz="4.6208025255e-06" iyy="2.3857795366e-03" iyz="-5.3988353751e-06" izz="1.4408507363e-03"/>
+    </inertial>
+    <visual>
+      <origin xyz="-0.005 -0.01 0" rpy="1.57 0 1.57" />
+      <geometry>
+        <mesh filename="data/link1.dae" />
+      </geometry>
+      <material name="blue" />
+    </visual>
+    <collision>
+      <origin xyz="-0.005 -0.01 0" rpy="1.57 0 1.57"  />
+      <geometry>
+        <mesh filename="data/link1.stl" />
+      </geometry>
+    </collision>
+  </link>
+  
+  <joint name="joint2" type="revolute">
+    <origin xyz="0.0 0 0.0916" rpy="-1.57 1.57 0" />
+    <axis xyz="0 0 1" />
+    <parent link="link1" />
+    <child  link="link2" />
+    <calibration rising="0.0" />
+    <dynamics damping="0.0" friction="0.0" />
+    <limit effort="30" velocity="1.0" lower="-2.1" upper="2.1" />
+    <safety_controller k_velocity="10" soft_lower_limit="-1.7" soft_upper_limit="1.7" />
+  </joint>
+  
+  <link name="link2">
+    <inertial>
+      <!-- Volume:  5.3688465000e-05 -->
+      <mass value="1.0" />
+      <!--pose> -7.0384000000e-04  1.5605060000e-02  1.4795500000e-02 0 0 0 </pose-->
+      <inertia ixx="5.4092711721e-04" ixy="1.1341970757e-06" ixz="5.3805058498e-05" iyy="7.2045046920e-04" iyz="-6.1169023923e-06" izz="3.0026347000e-04"/>
+    </inertial>
+    <visual>
+      <origin xyz="-0.046 0.02 0.005" rpy="-1.57 1.57 1.57" />
+      <geometry>
+        <mesh filename="data/link2.dae" />
+      </geometry>
+      <material name="green" />
+    </visual>
+    <collision>
+      <origin xyz="-0.046 0.02 0.005" rpy="-1.57 1.57 1.57" />
+      <geometry>
+        <mesh filename="data/link2.stl" />
+      </geometry>
+    </collision>
+  </link>
+  
+  <joint name="joint3" type="revolute">
+    <origin xyz="-0.0935 0 0" rpy="0 -1.57 0" />
+    <axis xyz="0 0 1" />
+    <parent link="link2" />
+    <child  link="link3" />
+    <calibration rising="0.0" />
+    <dynamics damping="0.0" friction="0.0" />
+    <limit effort="30" velocity="1.0" lower="-2.6" upper="2.6" />
+    <safety_controller k_velocity="10" soft_lower_limit="-2.2" soft_upper_limit="2.2" />
+  </joint>
+  
+  <link name="link3">
+    <inertial>
+      <!-- Volume:  4.4373322000e-05 -->
+      <mass value="1.0" />
+      <!--pose> -9.1594000000e-04  1.5870950000e-02  7.9653000000e-04 0 0 0 </pose-->
+      <inertia ixx="2.7643987980e-04" ixy="9.0842871760e-09" ixz="-4.3337278196e-06" iyy="3.1896672735e-04" iyz="4.1547711934e-07" izz="1.5720104301e-04"/>
+    </inertial>
+    <visual>
+      <origin xyz="-0.00 -0.012 0.022" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="data/link3.dae" />
+      </geometry>
+      <material name="blue" />
+    </visual>
+    <collision>
+      <origin xyz="-0.00 -0.012 0.022" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="data/link3.stl" />
+      </geometry>
+    </collision>
+  </link>
+  
+  <joint name="joint4" type="revolute">
+    <origin xyz="0 0 0.0437" rpy="0 1.57 0" />
+    <axis xyz="0 0 1" />
+    <parent link="link3" />
+    <child  link="link4" />
+    <calibration rising="0.0" />
+    <dynamics damping="0.0" friction="0.0" />
+    <limit effort="30" velocity="1.0" lower="-2.1" upper="2.1" />
+    <safety_controller k_velocity="10" soft_lower_limit="-1.7" soft_upper_limit="1.7" />
+  </joint>
+  
+  <link name="link4">
+    <inertial>
+      <!-- Volume:  5.3506546000e-05 -->
+      <mass value="1.0" />
+      <!--pose> -1.5582800000e-03  1.4998590000e-02 -2.8418200000e-03 0 0 0 </pose-->
+      <inertia ixx="5.5589705790e-04" ixy="-2.3330584635e-06" ixz="-5.4290039578e-05" iyy="7.3493604315e-04" iyz="-1.3984593586e-05" izz="3.0048525651e-04" />
+    </inertial>
+    <visual>
+      <origin xyz="-0.07 -0.01 0.007" rpy="0 -1.57 0" />
+      <geometry>
+        <mesh filename="data/link4.dae"/>
+      </geometry>
+      <material name="geen" />
+    </visual>
+    <collision>
+      <origin xyz="-0.07 -0.01 0.007" rpy="0 -1.57 0" />
+      <geometry>
+        <mesh filename="data/link4.stl" />
+      </geometry>
+    </collision>
+  </link>
+  
+  <joint name="joint5" type="revolute">
+    <origin xyz="-0.0971 0 0" rpy="3.14 1.57 0" />
+    <axis xyz="0 0 1" />
+    <parent link="link4" />
+    <child  link="link5" />
+    <calibration rising="0.0" />https://www.hamzamerzic.info/mesh_cleaner/?
+    <dynamics damping="0.0" friction="0.0" />
+    <limit effort="30" velocity="1.0" lower="-2.6" upper="2.6" />
+    <safety_controller k_velocity="10" soft_lower_limit="-2.2" soft_upper_limit="2.2" />
+  </joint>
+  
+  <link name="link5">
+    <inertial>
+      <!-- Volume:  1.2654689000e-05 -->
+      <mass value="1.0" />
+      <!--pose> -1.4611400000e-03  1.3265880000e-02 -6.7398800000e-03 0 0 0 </pose-->
+      <inertia ixx="4.0059715415e-04" ixy="-5.0194832919e-08" ixz="-2.5979303008e-07" iyy="7.1127871258e-04" iyz="-6.7620152498e-06" izz="4.5263093388e-04"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 -0.02 0.03" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="data/link5.dae"/>
+      </geometry>
+      <material name="blue" />
+    </visual>
+    <collision>
+      <origin xyz="0 -0.02 0.03" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="data/link5.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  
+  <joint name="joint6" type="revolute">
+    <origin xyz="0 0 0.052" rpy="0 -1.57 0" />
+    <axis xyz="0 0 1" />
+    <parent link="link5" />
+    <child  link="link6" />
+    <calibration rising="0.0" />
+    <dynamics damping="0.0" friction="0.0" />
+    <limit effort="30" velocity="1.0" lower="-2.1" upper="2.1" />
+    <safety_controller k_velocity="10" soft_lower_limit="-1.7" soft_upper_limit="1.7" />
+  </joint>
+  
+  <link name="link6">
+    <inertial>
+      <!-- Volume:  4.7712120000e-05 -->
+      <mass value="1.0" />
+      <!--pose>  1.3942550000e-02  4.9358810000e-02  1.6219755000e-01 0 0 0 </pose-->
+      <inertia ixx="2.7167957324e-04" ixy="9.4654796308e-06" ixz="5.8611941788e-07" iyy="1.6274507190e-04" iyz="1.3052637359e-05" izz="3.1645738022e-04"/>
+    </inertial>
+    <visual>
+      <origin xyz="-0.037 0.155 0.0185" rpy="1.57 1.57 0" />
+      <geometry>
+        <mesh filename="data/link6.dae"/>
+      </geometry>
+      <material name="green" />
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="data/link6.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  
+  <joint name="end_effector" type="fixed"> <!--Plans to upgrade to 7DOF-->
+    <origin xyz="0.0419 0 0" rpy="-1.57 0 0" />
+    <parent link="link6" />
+    <child  link="dummy" />
+  </joint>
+  
+  <link name="dummy">
+    <inertial>
+      <mass value="1.0" />
+      <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <sphere radius="0.005"/>
+      </geometry>
+      <material name="red" />
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <sphere radius="0.005"/>
+      </geometry>
+    </collision>
+  </link>
+</robot>
